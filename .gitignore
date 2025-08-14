@@ -1,0 +1,19 @@
+# Игнорировать виртуальное окружение
+.venv/
+venv/
+env/
+
+# Игнорировать файл с секретами
+.env
+
+# Игнорировать файлы Python-компиляции
+__pycache__/
+*.pyc
+
+
+# Django
+*.sqlite3
+db.sqlite3
+*.log
+/staticfiles/
+media/
