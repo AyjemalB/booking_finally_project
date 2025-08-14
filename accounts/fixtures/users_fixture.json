@@ -4,9 +4,9 @@
     "pk": 1,
     "fields": {
       "username": "James",
-      "password": "pbkdf2_sha256$260000$...hashed_password...",
+      "password": "12345james",
       "email": "james.carter87@example.com",
-      "role": "lordland",
+      "role": "landlord",
       "is_active": true
     }
   },
@@ -15,9 +15,9 @@
     "pk": 2,
     "fields": {
       "username": "Emily",
-      "password": "pbkdf2_sha256$260000$...hashed_password...",
+      "password": "e12345",
       "email": "emily@example.com",
-      "role": "lordland",
+      "role": "landlord",
       "is_active": true
     }
   },
@@ -26,9 +26,9 @@
     "pk": 3,
     "fields": {
       "username": "Michael",
-      "password": "pbkdf2_sha256$260000$...hashed_password...",
+      "password": "m123456",
       "email": "michael@example.com",
-      "role": "lordland",
+      "role": "landlord",
       "is_active": true
     }
   },
@@ -37,7 +37,7 @@
     "pk": 4,
     "fields": {
       "username": "Olivia",
-      "password": "pbkdf2_sha256$260000$...hashed_password...",
+      "password": "o123456",
       "email": "olivia@example.com",
       "role": "tenant",
       "is_active": true
@@ -48,7 +48,7 @@
     "pk": 5,
     "fields": {
       "username": "Sophia",
-      "password": "pbkdf2_sha256$260000$...hashed_password...",
+      "password": "s123456",
       "email": "sophia@example.com",
       "role": "tenant",
       "is_active": true

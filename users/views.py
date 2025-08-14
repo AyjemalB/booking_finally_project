@@ -7,12 +7,14 @@ from rest_framework.authtoken.models import Token
 from rest_framework import generics
 from .models import User
 from .serializers import UserSerializer
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 
 
 
-@api_view(['POST'])
+@api_view(['POST', 'GET'])
 def register_view(request):
+    if request.method == 'GET':
+        return Response({'message': 'Login endpoint is working. Use POST to log in.'})
     serializer = RegisterSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
@@ -23,7 +25,13 @@ def register_view(request):
 
 @api_view(['POST'])
 def login_view(request):
-    user = authenticate(username=request.data['username'], password=request.data['password'])
+    email = request.data.get('email')
+    password = request.data.get('password')
+
+    if not email or not password:
+        return Response({'error': 'Email и пароль обязательны'}, status=400)
+
+    user = authenticate(request, email=email, password=password)
     if user:
         token, _ = Token.objects.get_or_create(user=user)
         return Response({'token': token.key})
@@ -33,4 +41,5 @@ def login_view(request):
 class UserListView(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny] # <- временно отключает проверку
+    # permission_classes = [AllowAny] # <- временно отключает проверку
+    permission_classes = [IsAuthenticated]
